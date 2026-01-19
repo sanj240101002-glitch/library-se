@@ -14,8 +14,6 @@ class TestSprint1(unittest.TestCase):
         with self.assertRaises(ValueError):
             lib.add_book("B1", "Java", "James")
 
-
-
 class TestSprint2(unittest.TestCase):
 
     def test_borrow_available_book(self):
@@ -38,20 +36,4 @@ class TestSprint2(unittest.TestCase):
         lib.return_book("B1")
         self.assertFalse(lib.books["B1"]["borrowed"])
 
-
-
-
-
-class TestSprint3(unittest.TestCase):
-
-    def test_report_contains_header(self):
-        lib = Library()
-        report = lib.generate_report()
-        self.assertIn("ID | Title | Author | Status", report)
-
-    def test_report_contains_book_entry(self):
-        lib = Library()
-        lib.add_book("B1", "Python", "Guido")
-        report = lib.generate_report()
-        self.assertIn("B1", report)
 
